@@ -4,3 +4,6 @@
 
 # System specific directories
 .DS_Store
+
+# node modules
+node_modules
