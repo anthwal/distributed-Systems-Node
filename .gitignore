@@ -1,0 +1,6 @@
+# Workspace directories
+.idea
+.vscode
+
+# System specific directories
+.DS_Store
