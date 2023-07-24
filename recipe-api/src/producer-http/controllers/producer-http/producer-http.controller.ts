@@ -7,7 +7,13 @@ export class ProducerHttpController {
   constructor(private producerHttpService: ProducerHttpService) {}
 
   @Get(':id(\\d+)')
-  public show(@Req() request: FastifyRequest, @Res() reply: FastifyReply) {
-    return this.producerHttpService.index(request, reply);
+  public show(@Req() request: FastifyRequest, @Res({ passthrough: true }) reply: FastifyReply) {
+    console.log(`worker request pid=${process.pid}`);
+    const id = Number(request.params['id']);
+    if (id !== 42) {
+      reply.status(404);
+      return { error: 'not_found' };
+    }
+    return this.producerHttpService.index(id);
   }
 }
