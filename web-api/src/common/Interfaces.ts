@@ -9,7 +9,12 @@ export interface IRecipe {
   }[];
 }
 
-export interface IProducerHttpServiceResponse {
+export interface IProducerResponse {
   producer_pid: number;
   recipe: IRecipe;
+}
+
+export interface IConsumerHttpServiceResponse {
+  consumer_pid: number;
+  producer_data: IProducerResponse;
 }

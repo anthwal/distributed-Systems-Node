@@ -1,10 +1,6 @@
 import { Injectable } from '@nestjs/common';
-import { IRecipe } from '../../../common/Interfaces';
+import { IProducerHttpServiceResponse } from '../../../common/Interfaces';
 
-export interface IProducerHttpServiceResponse {
-  producer_pid: number;
-  recipe: IRecipe;
-}
 @Injectable()
 export class ProducerHttpService {
   public index(id: number): IProducerHttpServiceResponse {
