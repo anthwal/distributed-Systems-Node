@@ -6,6 +6,6 @@ export interface IQueryString {
   [key: string]: string;
 }
 
-export interface Headers {
+export interface IHeaders {
   [key: string]: string;
 }
