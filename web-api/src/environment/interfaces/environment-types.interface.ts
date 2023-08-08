@@ -7,3 +7,7 @@ export interface ITargetProducerConfig {
   targetHost: string;
   targetPort: number;
 }
+
+export interface ICertConfig {
+  certPath: string;
+}

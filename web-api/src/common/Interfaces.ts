@@ -18,3 +18,8 @@ export interface IConsumerHttpServiceResponse {
   consumer_pid: number;
   producer_data: IProducerResponse;
 }
+
+export interface IConsumerHttpsServiceResponse {
+  consumer_pid: number;
+  producer_data: IProducerResponse;
+}
