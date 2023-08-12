@@ -2,11 +2,12 @@ export interface IRecipe {
   id: number;
   name: string;
   steps: string;
-  ingredients: {
-    id: number;
-    name: string;
-    quantity: string;
-  }[];
+  ingredients: IIngredient[];
+}
+export interface IIngredient {
+  id: number;
+  name: string;
+  quantity: string;
 }
 
 export interface IProducerHttpServiceResponse {
