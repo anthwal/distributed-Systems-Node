@@ -9,7 +9,6 @@ export class ConsumerGraphqlController {
 
   @Get()
   public index(): Observable<IConsumerGraphQlResponse> {
-    console.log('inside controller');
     return this.consumerGraphqlService.fetchResults();
   }
 }
