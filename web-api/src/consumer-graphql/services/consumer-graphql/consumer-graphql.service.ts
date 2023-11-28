@@ -2,7 +2,7 @@ import { Injectable } from '@nestjs/common';
 import { HttpService } from '@nestjs/axios';
 import { ConfigService } from '@nestjs/config';
 import { ITargetProducerConfig } from '../../../environment/interfaces/environment-types.interface';
-import { map, Observable, tap } from 'rxjs';
+import { map, Observable } from 'rxjs';
 import { IConsumerGraphQlResponse, IProducerResponse } from '../../../common/Interfaces';
 
 @Injectable()
@@ -14,19 +14,16 @@ export class ConsumerGraphqlService {
   public TARGET = `${this.config.targetHost}:${this.config.targetPort}`;
 
   public complex_query = /*GraphQL*/ `query kitchenSink ($id:ID) {
-      recipe(id: $id) {
-        id
-        name
+    recipe(id: $id) {
+      id
+      name
+      ingredients {
+        quantity
       }
+    }
   }`;
 
   public fetchResults(): Observable<IConsumerGraphQlResponse> {
-    console.log(
-      JSON.stringify({
-        query: this.complex_query,
-        variables: { id: 42 },
-      }),
-    );
     const req = this.httpService.post<IProducerResponse>(
       `http://${this.TARGET}/graphql`,
       {
@@ -35,9 +32,6 @@ export class ConsumerGraphqlService {
       },
       { method: 'POST', headers: { 'Content-Type': 'application/json' } },
     );
-    return req.pipe(
-      map((response) => ({ consumer_pid: process.pid, producer_data: response.data })),
-      tap(console.log),
-    );
+    return req.pipe(map((response) => ({ consumer_pid: process.pid, producer_data: response.data })));
   }
 }
