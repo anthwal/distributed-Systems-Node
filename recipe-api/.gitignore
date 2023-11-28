@@ -38,3 +38,4 @@ lerna-debug.log*
 .env
 
 tls/
+src/producer-graphql/generated-graphql/
