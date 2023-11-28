@@ -3,7 +3,7 @@ import { IIngredient, IRecipe } from '../../../common/Interfaces';
 
 @Injectable()
 export class ProducerGraphqlService {
-  public getRecipe(id: number): Omit<IRecipe, 'ingredients'> {
+  public getRecipeById(id: number): Omit<IRecipe, 'ingredients'> {
     if (id !== 42) throw new Error(`recipe ${id} not found`);
     return {
       id,
