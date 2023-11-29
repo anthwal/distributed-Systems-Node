@@ -19,6 +19,8 @@ export interface IConsumerHttpServiceResponse {
   producer_data: IProducerResponse;
 }
 
-export interface IConsumerHttpsServiceResponse extends IConsumerHttpServiceResponse {}
+export type IConsumerHttpsServiceResponse = IConsumerHttpServiceResponse;
 
-export interface IConsumerGraphQlResponse extends IConsumerHttpServiceResponse {}
+export type IConsumerGraphQlResponse = IConsumerHttpServiceResponse;
+
+export type IConsumerGrpcServiceResponse = IConsumerHttpServiceResponse;

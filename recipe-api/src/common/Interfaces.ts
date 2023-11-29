@@ -14,3 +14,7 @@ export interface IProducerHttpServiceResponse {
   producer_pid: number;
   recipe: IRecipe;
 }
+
+export interface IMetaDataResponse {
+  pid: number;
+}
